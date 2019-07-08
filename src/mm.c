@@ -1,27 +1,33 @@
 #include "mm.h"
 #include "allocator.h"
 
-int find_index(struct page_frame_t *frame){
+int find_index(Frame *frame){
 	return (frame-AllPages);
 }
 
 void init_memory(){
 	int i = 0;
-	uint64_t address = (uint64_t)memory;
+	uint64_t address = 0;
 
 	for(; i < KERNEL_RESERVED; i++){
-		AllPages[i].next = NULL;
-		AllPages[i].address = address;
-		AllPages[i].allocated = 0;
-		AllPages[i].kernel = 1;
+		AllPages[i] = (Frame){
+			.node = {NULL, NULL},
+			.address = address,
+			.allocated = 0,
+			.kernel = 1,
+			.order = 15
+		};
 		address += PAGE_SIZE;
 	}
 
 	for(; i < NUM_PAGES; i++){
-		AllPages[i].next = NULL;
-		AllPages[i].address = address;
-		AllPages[i].allocated = 0;
-		AllPages[i].kernel = 0;
+		AllPages[i] = (Frame){
+			.node = {NULL, NULL},
+			.address = address,
+			.allocated = 0,
+			.kernel = 0,
+			.order = 15
+		};
 		address += PAGE_SIZE;
 	}
 

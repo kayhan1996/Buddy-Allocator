@@ -20,11 +20,13 @@ HEADER_FILES += $(wildcard $(HEADER_DIR))
 build: $(OBJ_FILES) $(HEADER_FILES)
 	@mkdir -p $(BIN_DIR)
 	@$(CC) $(CCFLAGS) $(OBJ_FILES) -o $(BIN_DIR)/$(NAME).o
+	@echo "Build Success!"
 
 .PHONY : clean
 clean :
 	rm -rf build
 	rm -rf $(BIN_DIR)
+	clear
 
 .PHONY : run
 run : build

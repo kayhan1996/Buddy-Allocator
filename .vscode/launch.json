@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Launch",
+            "name": "Launch",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/bin/malloc.o",
@@ -21,19 +21,8 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
-        },
-        {
-            "name": "gcc build and debug active file",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "/home/kayhan/dev/Buddy-Allocator/bin/malloc.o",
-            "stopAtEntry": true,
-            "cwd": "${workspaceRoot}",
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "preLaunchTask": "build",
-            "miDebuggerPath": "/usr/bin/gdb"
+            ],
+            "preLaunchTask": "build"
         }
     ]
 }
