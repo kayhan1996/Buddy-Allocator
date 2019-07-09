@@ -18,7 +18,7 @@
 
 typedef struct frame {
 	   	LinkNode node;
-	    uint64_t *address;
+	    uint64_t address;
 		uint64_t allocated : 1;
 		uint64_t kernel : 1;
 		uint64_t order : 4;
@@ -30,6 +30,5 @@ uint64_t *memory;
 
 int find_index(struct frame *frame);
 void init_memory();
-
 
 #endif

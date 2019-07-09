@@ -1,10 +1,12 @@
 #include "mm.h"
 #include "allocator.h"
 
+/* Finds the index of the frame in the AllPages array */
 int find_index(Frame *frame){
 	return (frame-AllPages);
 }
 
+/* initializes the memory and buddy system */
 void init_memory(){
 	int i = 0;
 	uint64_t address = 0;
